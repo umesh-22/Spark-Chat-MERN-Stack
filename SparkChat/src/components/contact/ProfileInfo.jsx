@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Link, useNavigate } from "react-router-dom";
 import { IoPowerSharp } from "react-icons/io5";
-import { api, LOGOUT_USER } from "@/constants/api";
+import { api, GET_USER, LOGOUT_USER } from "@/constants/api";
 import { toast } from "sonner";
 import {
   DropdownMenu,
@@ -21,9 +21,24 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useEffect } from "react";
 
 const ProfileInfo = () => {
-  const { userInfo } = useAppStore();
+  const { userInfo,setUserInfo } = useAppStore();
+
+  useEffect(()=>{
+    const getUserData = async () => {
+      try {
+        const res = await api.get(GET_USER);
+        setUserInfo(res.data.user);
+      
+      } catch (error) {
+        console.log({ error });
+      }
+    };
+    getUserData()
+
+  },[setUserInfo])
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
