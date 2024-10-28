@@ -1,0 +1,3 @@
+[submodule "SC-Server"]
+	path = SC-Server
+	url = https://github.com/umesh-22/sparkchat-backend.git
