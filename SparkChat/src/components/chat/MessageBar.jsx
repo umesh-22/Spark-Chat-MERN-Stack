@@ -75,7 +75,7 @@ const MessageBar = () => {
       if (file) {
         const formData = new FormData();
         formData.append("file", file);
-        console.log(formData);
+        // console.log(formData);
 
         setIsUploading(true);
 

@@ -121,7 +121,7 @@ const ChatContainner = () => {
           // onClick={() => downloadFile(msg.fileURL)}
         >
           <img
-            src={`http://localhost:5000/${msg.fileURL}`}
+            src={`import.meta.env.VITE_BACKEND_URI${msg.fileURL}`}
             alt="file"
             className="w-96 h-40 object-fill object-top"
           />
